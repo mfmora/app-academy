@@ -1,20 +1,7 @@
 # App Academy Projects
 
 ## w1d1
-+ [First Day! **Read me!**][day1-instructions]
 
-### Readings (65 min)
-+ Review readings from [week 0][prep-w0] and [week 1][prep-w1] of the
-  App Academy Prep course (30 min)
-  + **Pay special attention to the readings on code style from week 1!**
-+ Debugging
-    + [the pry REPL and the byebug debugger][pry-and-byebug] (20 min)
-    + [common error messages][common-error-messages] (15 min)
-
-### Additional Resources
-+ More byebug commands: [`display` and `where`][bonus-byebug]
-
-### Projects
 + [Enumerables][enumerables-project]
 + [Ghost][ghost-project]
 + **Bonus**: [Maze Solver][maze-project]

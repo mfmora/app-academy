@@ -103,4 +103,57 @@ class Array
     reversed
   end
 
+  def bubble_sort!(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    sorted = false
+    until sorted
+      sorted = true
+      self.each_with_index do |ele, x|
+        next if x + 1 == self.length
+
+        if prc.call(self[x], self[x + 1]) == 1
+          sorted = false
+          self[x], self[x + 1] = self[x + 1], self[x]
+        end
+      end
+    end
+
+    self
+  end
+
+  def bubble_sort(&prc)
+    self.dup.bubble_sort!(&prc)
+  end
+
+end
+
+def factors(num)
+  factor = []
+
+  (1..num).each do |number|
+    factor << number if num % number == 0
+  end
+  factor
+end
+
+def substrings(string)
+  subs = []
+
+  string.length.times do |substart|
+    (substart...string.length).each do |subend|
+      subs << string[substart..subend]
+    end
+  end
+
+  subs
+end
+
+def subwords(word, dictionary)
+  words = []
+  subs = substrings(word)
+  subs.each do |sub_word|
+    words << sub_word if dictionary.include?(sub_word)
+  end
+  words
 end
