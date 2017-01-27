@@ -2,8 +2,8 @@
 
 ## w1d1
 
-+ [Enumerables][enumerables-project]
-+ [Ghost][ghost-project]
++ :white_check_mark: [Enumerables][enumerables-project]
++ :negative_squared_cross_mark: [Ghost][ghost-project]
 + **Bonus**: [Maze Solver][maze-project]
 + **Bonus**: Use Ruby to solve the [eight-queens problem][eight-queens]
 + **Bonus**: Work through as many [Project Euler][project-euler]

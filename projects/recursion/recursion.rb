@@ -15,8 +15,6 @@ end
 
 def sum_recursion(array)
   return 0 if array.empty?
-  return array[0] if array.length == 1
-
   array.pop + sum_recursion(array)
 end
 
@@ -42,13 +40,12 @@ def recursion_two(b, n)
 end
 
 def fibonacci_recursive(n)
-  return nil if n < 1
-  return [0] if n == 1
-  return [0,1] if n == 2
-
-  recursive = fibonacci_recursive(n-1)
-  recursive << recursive[-1] + recursive[-2]
-
+  if n <= 2
+    [0, 1].take(n)
+  else
+    recursive = fibonacci_recursive(n-1)
+    recursive << recursive[-1] + recursive[-2]
+  end
 end
 
 def fibonacci_iterative(n)
@@ -102,15 +99,7 @@ end
 
 class Array
   def deep_dup
-    new_array = []
-    self.each do |el|
-      if el.is_a?(Array)
-        new_array << el.deep_dup
-      else
-        new_array << el
-      end
-    end
-    new_array
+    self.map { |el| el.is_a?(Array) ? el.deep_dup : el}
   end
 end
 
@@ -172,7 +161,7 @@ end
 
 def make_best_change(value, denominations)
   return [] if denominations.empty?
-  best_change = []
+  best_change = nil
   denominations.each do |coin|
     if value >= coin
       change = []
@@ -184,7 +173,7 @@ def make_best_change(value, denominations)
       remainder_coins = denominations.select {|denom| denom <= remainder}
       change += make_better_change(remainder, remainder_coins)
 
-      if best_change.length > change.length || best_change.length == 0
+      if best_change.nil? || best_change.length > change.length
         best_change = change
       end
     end
